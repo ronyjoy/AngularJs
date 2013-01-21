@@ -1,0 +1,11 @@
+git commmands
+
+clone the git 
+
+git clone https://github.com/SrtSolutions/chooseyourownapplication-starter.git
+
+git status 
+
+git . add
+
+git commit -m "message"
