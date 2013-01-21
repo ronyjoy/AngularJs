@@ -1,0 +1,19 @@
+body {
+	width:80%;
+}
+.text input {
+    width:95%;
+    padding:8px;
+    border:2px solid #cce;
+    font-size: 30px;
+    font-family: 'Oxygen', sans-serif;
+}
+
+.typingText{
+	font-size: 30px;
+    font-family: 'Oxygen', sans-serif;
+}
+
+.error {
+	font-color:red;
+}
