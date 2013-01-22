@@ -16,10 +16,8 @@ body {
 
 .correct {
 	color:#31B404;
-	font-size: 40px;
 }
 
 .error {
 	color:#FF0000;
-	font-size: 40px;
 }
