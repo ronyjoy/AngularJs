@@ -3,10 +3,14 @@ function TypingText($scope) {
 
   $scope.error = true;
 
+  $scope.startTime = parseInt(new Date().getTime()/1000);
+
+  $scope.markedTheStartTime = false;
+
   $scope.textTypedSoFar = function() {
     
     if ($scope.text!=undefined)  {
-      
+      markeTheStartTimeIfNotMarked();
       var strTextTypedSoFar = $scope.texts[0].substring(0,$scope.text.length)
       toggleClassesBetweenErrorAndCorrectBasedOnTextEntered(strTextTypedSoFar)
       return strTextTypedSoFar ;
@@ -21,8 +25,19 @@ function TypingText($scope) {
     if ($scope.text!=undefined)  {
       return  $scope.texts[0].substring($scope.text.length) ;
     } else {
+
       return "";
+      
     }
+  }
+
+  $scope.typingSpeed = function () {
+    if($scope.text!=undefined) {
+      return parseInt(($scope.text.length/(parseInt(new Date().getTime()/1000) - $scope.startTime)) * 60);
+    } else {
+      return "0";
+    }
+    
   }
 
   toggleClassesBetweenErrorAndCorrectBasedOnTextEntered = function (strTextTypedSoFar) {
@@ -35,6 +50,15 @@ function TypingText($scope) {
         jQuery('#textTypedSoFar').removeClass('error')
       }
   }
-  
+
+  markeTheStartTimeIfNotMarked = function() {
+      if(!$scope.markedTheStartTime) {
+         $scope.markedTheStartTime = true;
+         $scope.startTime = parseInt(new Date().getTime()/1000);
+
+      }
+  }
+
+
 }
 
