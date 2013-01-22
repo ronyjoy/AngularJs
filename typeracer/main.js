@@ -1,9 +1,9 @@
 function TypingText($scope) {
-  $scope.texts = ['Inspired by the widespread interest in news after the September 11 attacks, we invested in technology to help people search and browse news relevant to them. Google News broke new ground in news aggregation by gathering links in real time, grouping articles by story and ranking stories based on the editorial opinions of publishers worldwide. Linking to a diverse set of sources for any given story enabled readers to easily access different perspectives and genres of content. By featuring opposing viewpoints in the same display block, people were encouraged to hear arguments on both sides of an issue and gain a more balanced perspective','Text2'];
+  $scope.texts = "AngularJS works great with other technologies. Add as much or as little of AngularJS to an existing page as you like. Many other frameworks require full commitment. This page has multiple AngularJS applications embedded in it. Because AngularJS has no global state multiple apps can run on a single page without the use of iframes. We encourage you to view-source and look around.";
 
   $scope.error = true;
 
-  $scope.startTime = parseInt(new Date().getTime()/1000);
+  $scope.startTime = new Date().getTime()/1000;
 
   $scope.markedTheStartTime = false;
 
@@ -11,19 +11,19 @@ function TypingText($scope) {
     
     if ($scope.text!=undefined)  {
       markeTheStartTimeIfNotMarked();
-      var strTextTypedSoFar = $scope.texts[0].substring(0,$scope.text.length)
+      var strTextTypedSoFar = $scope.texts.substring(0,$scope.text.length)
       toggleClassesBetweenErrorAndCorrectBasedOnTextEntered(strTextTypedSoFar)
       return strTextTypedSoFar ;
 
     } else {
-      return $scope.texts[0];
+      return $scope.texts;
     }
   }
 
   $scope.textLeftToType = function() {
     
     if ($scope.text!=undefined)  {
-      return  $scope.texts[0].substring($scope.text.length) ;
+      return  $scope.texts.substring($scope.text.length) ;
     } else {
 
       return "";
@@ -31,9 +31,17 @@ function TypingText($scope) {
     }
   }
 
+  $scope.readDataFromTheUrl = function() {
+      jQuery.get($scope.url, function(data) {
+        $scope.texts =  data;
+    });
+  }
+
   $scope.typingSpeed = function () {
     if($scope.text!=undefined) {
-      return parseInt(($scope.text.length/(parseInt(new Date().getTime()/1000) - $scope.startTime)) * 60);
+      var wordlenght = $scope.text.length/5;
+      var minutes = ((new Date().getTime()/1000) - $scope.startTime)/60;
+      return parseInt(wordlenght/minutes);
     } else {
       return "0";
     }
