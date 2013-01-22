@@ -9,6 +9,10 @@
   </head>
   <body>
     <div ng-controller="TypingText" class="center rounded-corners">
+      <form ng-submit="readDataFromTheUrl()">
+        <input type="text" ng-model="url"  size="30" placeholder="paste the url where you want to read the text">
+        <input class="button" type="submit" value="Read text form this url">
+      </form>
       <span id="textTypedSoFar" class="typingText">{{textTypedSoFar()}}</span><span id="textLeft" class="typingText">{{textLeftToType()}}</span>
       <h1 class="text"><input id="track" type="text" ng-model="text" placeholder="Please start type" onpaste="return false"></h1><h2>Your Speed:{{typingSpeed()}}</h2>
     </div>
