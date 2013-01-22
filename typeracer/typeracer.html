@@ -8,11 +8,9 @@
     <link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
   </head>
   <body>
-    <div ng-controller="TypingText" class="center">
+    <div ng-controller="TypingText" class="center rounded-corners">
       <span id="textTypedSoFar" class="typingText">{{textTypedSoFar()}}</span><span id="textLeft" class="typingText">{{textLeftToType()}}</span>
-    </div>
-    <div class="text">
-      <h1><input id="track" type="text" ng-model="text" placeholder="Please start type" onpaste="return false"></h1>
+      <h1 class="text"><input id="track" type="text" ng-model="text" placeholder="Please start type" onpaste="return false"></h1><h2>Your Speed:{{typingSpeed()}}</h2>
     </div>
   
   </body>
