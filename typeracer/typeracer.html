@@ -12,10 +12,8 @@
       <span id="textTypedSoFar" class="typingText">{{textTypedSoFar()}}</span><span id="textLeft" class="typingText">{{textLeftToType()}}</span>
     </div>
     <div class="text">
-      <h1><input id="track" type="text" ng-model="text" placeholder="Please start type"></h1>
+      <h1><input id="track" type="text" ng-model="text" placeholder="Please start type" onpaste="return false"></h1>
     </div>
-  <div ng-init>
-      {{disableCutAndPaste()}}
-    </div>
+  
   </body>
 </html>

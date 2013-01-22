@@ -35,10 +35,6 @@ function TypingText($scope) {
         jQuery('#textTypedSoFar').removeClass('error')
       }
   }
-  $scope.disableCutAndPaste = function() {
-    jQuery('#track').bind("cut copy paste",function(e) {
-          e.preventDefault();
-    });
-  }
+  
 }
 
