@@ -13,6 +13,9 @@ function TypingText($scope) {
       markeTheStartTimeIfNotMarked();
       var strTextTypedSoFar = $scope.texts.substring(0,$scope.text.length)
       toggleClassesBetweenErrorAndCorrectBasedOnTextEntered(strTextTypedSoFar)
+      if (strTextTypedSoFar === $scope.texts) {
+        $scope.text = "";
+      }
       return strTextTypedSoFar ;
 
     } else {
@@ -31,11 +34,7 @@ function TypingText($scope) {
     }
   }
 
-  $scope.readDataFromTheUrl = function() {
-      jQuery.get($scope.url, function(data) {
-        $scope.texts =  data;
-    });
-  }
+  
 
   $scope.typingSpeed = function () {
     if($scope.text!=undefined) {

@@ -9,3 +9,10 @@ git status
 git . add
 
 git commit -m "message"
+
+//override and update
+git fetch origin
+git reset --hard origin/master
+
+//push your changes to master 
+git push origin master
