@@ -1,7 +1,12 @@
 function TypingText($scope) {
-  $scope.texts = "AngularJS works great with other technologies. Add as much or as little of AngularJS to an existing page as you like. Many other frameworks require full commitment. This page has multiple AngularJS applications embedded in it. Because AngularJS has no global state multiple apps can run on a single page without the use of iframes. We encourage you to view-source and look around.";
+  $scope.texts = ["AngularJS works great with other technologies. Add as much or as little of AngularJS to an existing page as you like. Many other frameworks require full commitment. This page has multiple AngularJS applications embedded in it. Because AngularJS has no global state multiple apps can run on a single page without the use of iframes. We encourage you to view-source and look around.",
+                  "test",
+                  "text3",
+                  "text4"];
 
   $scope.error = true;
+
+  $scope.textIndex = Math.round(Math.random()*4);
 
   $scope.startTime = new Date().getTime()/1000;
 
@@ -11,22 +16,22 @@ function TypingText($scope) {
     
     if ($scope.text!=undefined)  {
       markeTheStartTimeIfNotMarked();
-      var strTextTypedSoFar = $scope.texts.substring(0,$scope.text.length)
+      var strTextTypedSoFar = $scope.texts[$scope.textIndex].substring(0,$scope.text.length)
       toggleClassesBetweenErrorAndCorrectBasedOnTextEntered(strTextTypedSoFar)
-      if (strTextTypedSoFar === $scope.texts) {
+      if (strTextTypedSoFar === $scope.texts[$scope.textIndex]) {
         $scope.text = "";
       }
       return strTextTypedSoFar ;
 
     } else {
-      return $scope.texts;
+      return $scope.texts[$scope.textIndex];
     }
   }
 
   $scope.textLeftToType = function() {
     
     if ($scope.text!=undefined)  {
-      return  $scope.texts.substring($scope.text.length) ;
+      return  $scope.texts[$scope.textIndex].substring($scope.text.length) ;
     } else {
 
       return "";
