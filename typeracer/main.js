@@ -3,17 +3,19 @@ function TypingText($scope) {
                   "Groovy is like a super version of Java. It can leverage Java's enterprise capabilities but also has cool productivity features like closures, builders and dynamic typing. If you are a developer, tester or script guru, you have to love Groovy.",
                   "The Adapter Pattern (sometimes called the wrapper pattern) allows objects satisfying one interface to be used where another type of interface is expected. There are two typical flavours of the pattern: the delegation flavour and the inheritance flavour.",
                   "The Abstract Factory Pattern provides a way to encapsulate a group of individual factories that have a common theme. It embodies the intent of a normal factory, i.e. remove the need for code using an interface to know the concrete implementation behind the interface, but applies to a set of interfaces and selects an entire family of concrete classes which implement those interfaces.",
-                  "The Bouncer Pattern describes usage of a method whose sole purpose is to either throw an exception (when particular conditions hold) or do nothing. Such methods are often used to defensively guard pre-conditions of a method."];
+                  "The Bouncer Pattern describes usage of a method whose sole purpose is to either throw an exception (when particular conditions hold) or do nothing. Such methods are often used to defensively guard pre-conditions of a method.",
+                  "test"];
 
   $scope.error = true;
 
-  $scope.textIndex = Math.round(Math.random()*4);
+  $scope.textIndex = Math.round(Math.random()*5);
 
   $scope.startTime = new Date().getTime()/1000;
 
   $scope.markedTheStartTime = false;
 
-  
+  $scope.speed = 0;
+
 
   $scope.textTypedSoFar = function() {
     
@@ -22,7 +24,9 @@ function TypingText($scope) {
       var strTextTypedSoFar = $scope.texts[$scope.textIndex].substring(0,$scope.text.length)
       toggleClassesBetweenErrorAndCorrectBasedOnTextEntered(strTextTypedSoFar)
       if (strTextTypedSoFar === $scope.texts[$scope.textIndex]) {
+        slider.setValue($scope.speed);
         $scope.text = "";
+
       }
       return strTextTypedSoFar ;
 
@@ -45,14 +49,14 @@ function TypingText($scope) {
   
 
   $scope.typingSpeed = function () {
-    if($scope.text!=undefined) {
+    if($scope.text!=undefined && $scope.text!= "") {
       var wordlenght = $scope.text.length/5;
       var minutes = ((new Date().getTime()/1000) - $scope.startTime)/60;
-      var speed = parseInt(wordlenght/minutes);
-      slider.setValue(speed);
-      return speed;
+      $scope.speed = parseInt(wordlenght/minutes);
+      slider.setValue($scope.speed);
+      return $scope.speed;
     } else {
-      return "0";
+      return $scope.speed ;
     }
     
   }
