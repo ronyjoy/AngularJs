@@ -11,11 +11,13 @@ body {
 	padding:5px 5px 5px 5px;
 }
 
+.speedometer { float:right; margin: 0 0 15px 15px; width:210px;height:210px;}
+
 .text input {
     width:95%;
     padding:8px;
     border:2px solid #cce;
-    font-size: 20px;
+    font-size: 22px;
     font-family: 'Oxygen', sans-serif;
 }
 
