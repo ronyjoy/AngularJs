@@ -1,8 +1,9 @@
 function TypingText($scope) {
   $scope.texts = ["AngularJS works great with other technologies. Add as much or as little of AngularJS to an existing page as you like. Many other frameworks require full commitment. This page has multiple AngularJS applications embedded in it. Because AngularJS has no global state multiple apps can run on a single page without the use of iframes. We encourage you to view-source and look around.",
-                  "test",
-                  "text3",
-                  "text4"];
+                  "Groovy is like a super version of Java. It can leverage Java's enterprise capabilities but also has cool productivity features like closures, builders and dynamic typing. If you are a developer, tester or script guru, you have to love Groovy.",
+                  "The Adapter Pattern (sometimes called the wrapper pattern) allows objects satisfying one interface to be used where another type of interface is expected. There are two typical flavours of the pattern: the delegation flavour and the inheritance flavour.",
+                  "The Abstract Factory Pattern provides a way to encapsulate a group of individual factories that have a common theme. It embodies the intent of a normal factory, i.e. remove the need for code using an interface to know the concrete implementation behind the interface, but applies to a set of interfaces and selects an entire family of concrete classes which implement those interfaces.",
+                  "The Bouncer Pattern describes usage of a method whose sole purpose is to either throw an exception (when particular conditions hold) or do nothing. Such methods are often used to defensively guard pre-conditions of a method."];
 
   $scope.error = true;
 
@@ -11,6 +12,8 @@ function TypingText($scope) {
   $scope.startTime = new Date().getTime()/1000;
 
   $scope.markedTheStartTime = false;
+
+  
 
   $scope.textTypedSoFar = function() {
     
@@ -45,7 +48,9 @@ function TypingText($scope) {
     if($scope.text!=undefined) {
       var wordlenght = $scope.text.length/5;
       var minutes = ((new Date().getTime()/1000) - $scope.startTime)/60;
-      return parseInt(wordlenght/minutes);
+      var speed = parseInt(wordlenght/minutes);
+      slider.setValue(speed);
+      return speed;
     } else {
       return "0";
     }
