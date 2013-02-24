@@ -1,12 +1,12 @@
 git commmands
 
-clone the git 
-
+//clone the git 
 git clone https://github.com/SrtSolutions/chooseyourownapplication-starter.git
-
+//current changed file status
 git status 
 
-git . add
+//track the newly changed / added file
+git add .
 
 git commit -m "message"
 
@@ -15,4 +15,4 @@ git fetch origin
 git reset --hard origin/master
 
 //push your changes to master 
-git push origin master
+git push -u origin master
